@@ -1,0 +1,8 @@
+TwitterClient.xcodeproj/project.xcworkspace/xcuserdata/*
+TwitterClient.xcodeproj/xcuserdata/*
+TwitterClient.xcworkspace/xcuserdata/*
+
+build/*
+Pods/*
+Podfile.lock
+
