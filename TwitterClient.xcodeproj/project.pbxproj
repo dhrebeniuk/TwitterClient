@@ -10,6 +10,26 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>0644B1669EE58C2937F36F9C</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-TwitterClientTests.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>2310EECA97AE580CD8ADB5BC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0644B1669EE58C2937F36F9C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>24126E2FDBAEA073244D3DB9</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -38,7 +58,10 @@
 		<dict>
 			<key>children</key>
 			<array>
+				<string>D980B2841CF638CA00CC911E</string>
+				<string>D980B2821CF6385100CC911E</string>
 				<string>46901FD4DEF8F413CAFAF9C1</string>
+				<string>0644B1669EE58C2937F36F9C</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -71,6 +94,36 @@
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
+		<key>400AC5C6ED6C914D34701C4A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
 		<key>46901FD4DEF8F413CAFAF9C1</key>
 		<dict>
 			<key>explicitFileType</key>
@@ -90,11 +143,28 @@
 			<array>
 				<string>C4D7337A4819AFD5A09ABF93</string>
 				<string>85AAAEEB01BC68D7D3219A21</string>
+				<string>63F94D44356F4AA0B10918A6</string>
+				<string>F662FB75C2225C903FB7C44E</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>63F94D44356F4AA0B10918A6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-TwitterClientTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-TwitterClientTests/Pods-TwitterClientTests.debug.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -149,6 +219,30 @@ fi
 			<string>46901FD4DEF8F413CAFAF9C1</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB5AA548DF9B20732D1B1A06</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-TwitterClientTests/Pods-TwitterClientTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
 		</dict>
 		<key>C4D7337A4819AFD5A09ABF93</key>
 		<dict>
@@ -255,6 +349,7 @@ fi
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
+				<string>D980B2891CF6429A00CC911E</string>
 				<string>D980B25B1CF6239700CC911E</string>
 				<string>D980B27B1CF6245800CC911E</string>
 				<string>D980B2801CF6247D00CC911E</string>
@@ -271,6 +366,8 @@ fi
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
+				<string>D980B2851CF638CA00CC911E</string>
+				<string>D980B2831CF6385100CC911E</string>
 				<string>928CACEC6CEB01BD10934EC9</string>
 			</array>
 			<key>isa</key>
@@ -499,6 +596,7 @@ fi
 			<key>files</key>
 			<array>
 				<string>D980B26B1CF6239700CC911E</string>
+				<string>D980B28C1CF65FD500CC911E</string>
 			</array>
 			<key>isa</key>
 			<string>PBXSourcesBuildPhase</string>
@@ -510,7 +608,9 @@ fi
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
-			<array/>
+			<array>
+				<string>2310EECA97AE580CD8ADB5BC</string>
+			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
@@ -533,9 +633,12 @@ fi
 			<string>D980B2721CF6239700CC911E</string>
 			<key>buildPhases</key>
 			<array>
+				<string>400AC5C6ED6C914D34701C4A</string>
 				<string>D980B2621CF6239700CC911E</string>
 				<string>D980B2631CF6239700CC911E</string>
 				<string>D980B2641CF6239700CC911E</string>
+				<string>BB5AA548DF9B20732D1B1A06</string>
+				<string>F903DED9B5B361DF117C38B2</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -593,6 +696,7 @@ fi
 		<dict>
 			<key>children</key>
 			<array>
+				<string>D980B28A1CF65FBA00CC911E</string>
 				<string>D980B26A1CF6239700CC911E</string>
 				<string>D980B26C1CF6239700CC911E</string>
 			</array>
@@ -867,6 +971,8 @@ fi
 		</dict>
 		<key>D980B2731CF6239700CC911E</key>
 		<dict>
+			<key>baseConfigurationReference</key>
+			<string>63F94D44356F4AA0B10918A6</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>BUNDLE_LOADER</key>
@@ -889,6 +995,8 @@ fi
 		</dict>
 		<key>D980B2741CF6239700CC911E</key>
 		<dict>
+			<key>baseConfigurationReference</key>
+			<string>F662FB75C2225C903FB7C44E</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>BUNDLE_LOADER</key>
@@ -913,6 +1021,7 @@ fi
 		<dict>
 			<key>children</key>
 			<array>
+				<string>D980B2861CF6422A00CC911E</string>
 				<string>D980B2761CF6245800CC911E</string>
 				<string>D980B2771CF6245800CC911E</string>
 				<string>D980B2791CF6245800CC911E</string>
@@ -1041,6 +1150,167 @@ fi
 			<string>Supporting Files</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D980B2821CF6385100CC911E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Social.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Social.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>D980B2831CF6385100CC911E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D980B2821CF6385100CC911E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D980B2841CF638CA00CC911E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Accounts.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Accounts.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>D980B2851CF638CA00CC911E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D980B2841CF638CA00CC911E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D980B2861CF6422A00CC911E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D980B2871CF6429A00CC911E</string>
+				<string>D980B2881CF6429A00CC911E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Model</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D980B2871CF6429A00CC911E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>TCTwitterClient.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D980B2881CF6429A00CC911E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>TCTwitterClient.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D980B2891CF6429A00CC911E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D980B2881CF6429A00CC911E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D980B28A1CF65FBA00CC911E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D980B28B1CF65FD500CC911E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Sources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D980B28B1CF65FD500CC911E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>TCTwitterClientTest.m</string>
+			<key>path</key>
+			<string>Sources/TCTwitterClientTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D980B28C1CF65FD500CC911E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D980B28B1CF65FD500CC911E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F662FB75C2225C903FB7C44E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-TwitterClientTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-TwitterClientTests/Pods-TwitterClientTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F903DED9B5B361DF117C38B2</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-TwitterClientTests/Pods-TwitterClientTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>
