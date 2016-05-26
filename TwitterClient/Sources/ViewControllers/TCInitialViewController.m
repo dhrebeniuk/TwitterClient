@@ -47,7 +47,7 @@
     if ([segue.identifier isEqualToString:@"TimeLineSegue"]) {
 		UINavigationController *navigationViewController = segue.destinationViewController;
 		TCViewController *viewController = (TCViewController *)navigationViewController.topViewController;
-		TCAccountManager *accountManager = [[TCAccountManager alloc] initWithSocialAccount:self.socialAccount inManagedObjectContext:nil];
+		TCAccountManager *accountManager = [[TCAccountManager alloc] initWithSocialAccount:self.socialAccount inManagedObjectContext:self.managedObjectContext];
 		viewController.accountManager = accountManager;
 	}
 }

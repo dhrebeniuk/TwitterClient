@@ -8,9 +8,13 @@
 
 #import "TCAppDelegate.h"
 #import <Accounts/Accounts.h>
+#import <CoreData/CoreData.h>
 #import "TCInitialViewController.h"
+#import "NSManagedObjectContext+TwitterClient.h"
 
 @interface TCAppDelegate ()
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -19,9 +23,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	ACAccountStore *accountStore = [[ACAccountStore alloc] init];
 
-	UIViewController *initialViewController = self.window.rootViewController;
+	NSURL *storageURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] firstObject] URLByAppendingPathComponent:@"TwitterClientStorage.sqlite"];
+	self.managedObjectContext = [NSManagedObjectContext newManagedObjectContextAtURL:storageURL];
+	
+	TCInitialViewController *initialViewController = (TCInitialViewController *)self.window.rootViewController;
 	if ([initialViewController isKindOfClass:[TCInitialViewController class]]) {
-		((TCInitialViewController *)initialViewController).accountStore = accountStore;
+		initialViewController.accountStore = accountStore;
+		initialViewController.managedObjectContext = self.managedObjectContext;
 	}
 	
 	return YES;
