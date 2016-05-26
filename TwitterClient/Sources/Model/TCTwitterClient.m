@@ -38,9 +38,8 @@
 		SLRequest *twitterInfoRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:[NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"] parameters:[NSDictionary dictionaryWithObject:account.username forKey:@"screen_name"]];
 		twitterInfoRequest.account = account;
 		[twitterInfoRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-			NSArray *response = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
 			if (completion != nil) {
-				completion(response);
+				completion(responseData);
 			}
 		}];
 	}];

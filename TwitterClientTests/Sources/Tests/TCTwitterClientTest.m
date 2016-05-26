@@ -39,10 +39,10 @@
 	twitterClient.accountStore = accountStore;
 	
 	__block BOOL requestFinished = NO;
-	__block NSArray *requestResults = nil;
-	[twitterClient loadFeedWithCompletion:^(NSArray *results) {
+	__block NSData *receivedResponseData = nil;
+	[twitterClient loadFeedWithCompletion:^(NSData *data) {
 		requestFinished = YES;
-		requestResults = results;
+		receivedResponseData = data;
 	}];
 
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
@@ -52,7 +52,7 @@
 		}
 	}
 	
-	XCTAssertNotNil(requestResults);
+	XCTAssertNotNil(receivedResponseData);
 }
 
 @end

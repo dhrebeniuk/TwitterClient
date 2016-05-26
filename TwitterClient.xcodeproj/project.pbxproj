@@ -28,6 +28,9 @@
 		EB2110261CF6FC9900D191C0 /* NSManagedObjectContext+TwitterClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2110241CF6FC9900D191C0 /* NSManagedObjectContext+TwitterClientTest.m */; };
 		EB2110271CF6FC9900D191C0 /* TCTwitterClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2110251CF6FC9900D191C0 /* TCTwitterClientTest.m */; };
 		EB21102B1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB21102A1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m */; };
+		EB21102E1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB21102D1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.m */; };
+		EB2110301CF6FE7C00D191C0 /* TCTwitterTimeLineDeserializerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EB21102F1CF6FE7C00D191C0 /* TCTwitterTimeLineDeserializerTest.m */; };
+		EB2110341CF6FF2F00D191C0 /* TimeLineResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = EB2110331CF6FF2F00D191C0 /* TimeLineResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,10 @@
 		EB2110251CF6FC9900D191C0 /* TCTwitterClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTwitterClientTest.m; sourceTree = "<group>"; };
 		EB2110291CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+TwitterClientTests.h"; sourceTree = "<group>"; };
 		EB21102A1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+TwitterClientTests.m"; sourceTree = "<group>"; };
+		EB21102C1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTwitterTimeLineDeserializer.h; sourceTree = "<group>"; };
+		EB21102D1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTwitterTimeLineDeserializer.m; sourceTree = "<group>"; };
+		EB21102F1CF6FE7C00D191C0 /* TCTwitterTimeLineDeserializerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTwitterTimeLineDeserializerTest.m; sourceTree = "<group>"; };
+		EB2110331CF6FF2F00D191C0 /* TimeLineResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TimeLineResponse.json; sourceTree = "<group>"; };
 		F662FB75C2225C903FB7C44E /* Pods-TwitterClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClientTests/Pods-TwitterClientTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D980B28A1CF65FBA00CC911E /* Sources */,
+				EB2110321CF6FEF500D191C0 /* Resources */,
 				D980B26A1CF6239700CC911E /* TwitterClientTests.m */,
 				D980B26C1CF6239700CC911E /* Info.plist */,
 			);
@@ -203,6 +211,8 @@
 				EB2110081CF6F5D000D191C0 /* CoreDataMappings */,
 				D980B2871CF6429A00CC911E /* TCTwitterClient.h */,
 				D980B2881CF6429A00CC911E /* TCTwitterClient.m */,
+				EB21102C1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.h */,
+				EB21102D1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,6 +264,7 @@
 			children = (
 				EB2110241CF6FC9900D191C0 /* NSManagedObjectContext+TwitterClientTest.m */,
 				EB2110251CF6FC9900D191C0 /* TCTwitterClientTest.m */,
+				EB21102F1CF6FE7C00D191C0 /* TCTwitterTimeLineDeserializerTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -265,6 +276,14 @@
 				EB21102A1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m */,
 			);
 			path = ClassExtensions;
+			sourceTree = "<group>";
+		};
+		EB2110321CF6FEF500D191C0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB2110331CF6FF2F00D191C0 /* TimeLineResponse.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB2110341CF6FF2F00D191C0 /* TimeLineResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +489,7 @@
 				EB2110191CF6F62F00D191C0 /* TCAccount+CoreDataProperties.m in Sources */,
 				D980B2891CF6429A00CC911E /* TCTwitterClient.m in Sources */,
 				EB21101C1CF6F62F00D191C0 /* TCTimeLineItem.m in Sources */,
+				EB21102E1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.m in Sources */,
 				D980B25B1CF6239700CC911E /* TwitterClient.xcdatamodeld in Sources */,
 				EB21101A1CF6F62F00D191C0 /* TCAccount.m in Sources */,
 				D980B27B1CF6245800CC911E /* TCAppDelegate.m in Sources */,
@@ -483,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB2110301CF6FE7C00D191C0 /* TCTwitterTimeLineDeserializerTest.m in Sources */,
 				EB21102B1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m in Sources */,
 				EB2110261CF6FC9900D191C0 /* NSManagedObjectContext+TwitterClientTest.m in Sources */,
 				EB2110271CF6FC9900D191C0 /* TCTwitterClientTest.m in Sources */,

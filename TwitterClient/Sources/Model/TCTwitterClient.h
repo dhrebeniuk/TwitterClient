@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^TCTwitterClientCompletionHandler)(NSArray *results);
+typedef void(^TCTwitterClientCompletionHandler)(NSData *data);
 
 @class ACAccountStore;
 

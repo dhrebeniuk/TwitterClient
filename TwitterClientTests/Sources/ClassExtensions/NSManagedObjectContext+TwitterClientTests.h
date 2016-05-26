@@ -10,4 +10,6 @@
 
 @interface NSManagedObjectContext (TwitterClientTests)
 
++ (NSManagedObjectContext *)newMemoryManagedObjectContext;
+
 @end
