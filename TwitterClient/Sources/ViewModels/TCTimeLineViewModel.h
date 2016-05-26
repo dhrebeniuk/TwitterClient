@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import <ReactiveCocoa/RACSignal.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @class TCAccountManager;
 @class TCTwitterClient;
@@ -17,9 +17,11 @@ typedef void(^TCTimeLineViewModelCompletion)(NSError *error);
 
 @interface TCTimeLineViewModel : NSObject
 
-@property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
+@property (nonatomic, strong, readonly) RACSubject *updatedContentSignal;
 
 @property (nonatomic, strong, readonly) NSString *title;
+
+@property (nonatomic, readonly) NSUInteger timeLineItemsCount;
 
 - (instancetype)initWithAccountManager:(TCAccountManager *)accountManager twitterClient:(TCTwitterClient *)twitterClient;
 
