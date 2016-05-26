@@ -7,21 +7,23 @@
 //
 
 #import "TCAppDelegate.h"
-#import "TCTwitterClient.h"
 #import <Accounts/Accounts.h>
+#import "TCInitialViewController.h"
 
 @interface TCAppDelegate ()
 
-@property (nonatomic, strong) TCTwitterClient *twitterClient;
 
 @end
 
 @implementation TCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	self.twitterClient = [[TCTwitterClient alloc] init];
 	ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-	self.twitterClient.accountStore = accountStore;
+
+	UIViewController *initialViewController = self.window.rootViewController;
+	if ([initialViewController isKindOfClass:[TCInitialViewController class]]) {
+		((TCInitialViewController *)initialViewController).accountStore = accountStore;
+	}
 	
 	return YES;
 }

@@ -34,10 +34,11 @@
 	NSData *responseData = [NSJSONSerialization dataWithJSONObject:@[] options:NSJSONWritingPrettyPrinted error:nil];
 	stubRequest(@"GET", [@"^https://api.twitter.com/1.1/statuses/home_timeline.json.*" regex]).andReturnRawResponse(responseData);
 
-	TCTwitterClient *twitterClient = [[TCTwitterClient alloc] init];
 	ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-	twitterClient.accountStore = accountStore;
-	
+	ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+	ACAccount *account = [[accountStore accountsWithAccountType:accountType] firstObject];
+
+	TCTwitterClient *twitterClient = [[TCTwitterClient alloc] initWithAccount:account];
 	__block BOOL requestFinished = NO;
 	__block NSData *receivedResponseData = nil;
 	[twitterClient loadFeedWithCompletion:^(NSData *data) {
@@ -51,7 +52,7 @@
 			break;
 		}
 	}
-	
+
 	XCTAssertNotNil(receivedResponseData);
 }
 

@@ -10,11 +10,13 @@
 
 typedef void(^TCTwitterClientCompletionHandler)(NSData *data);
 
-@class ACAccountStore;
+@class ACAccount;
 
 @interface TCTwitterClient : NSObject
 
-@property (nonatomic, strong) ACAccountStore *accountStore;
+@property (nonatomic, strong) ACAccount *account;
+
+- (instancetype)initWithAccount:(ACAccount *)account;
 
 - (void)loadFeedWithCompletion:(TCTwitterClientCompletionHandler)completion;
 

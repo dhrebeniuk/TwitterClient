@@ -33,6 +33,7 @@
 		EB2110341CF6FF2F00D191C0 /* TimeLineResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = EB2110331CF6FF2F00D191C0 /* TimeLineResponse.json */; };
 		EB2110381CF71F5700D191C0 /* TCTimeLineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2110371CF71F5700D191C0 /* TCTimeLineViewModel.m */; };
 		EB21103A1CF71F7500D191C0 /* TCTimeLineViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2110391CF71F7500D191C0 /* TCTimeLineViewModelTest.m */; };
+		EB21103D1CF7323500D191C0 /* TCInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB21103C1CF7323500D191C0 /* TCInitialViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		EB2110361CF71F5700D191C0 /* TCTimeLineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTimeLineViewModel.h; sourceTree = "<group>"; };
 		EB2110371CF71F5700D191C0 /* TCTimeLineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTimeLineViewModel.m; sourceTree = "<group>"; };
 		EB2110391CF71F7500D191C0 /* TCTimeLineViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTimeLineViewModelTest.m; sourceTree = "<group>"; };
+		EB21103B1CF7323500D191C0 /* TCInitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCInitialViewController.h; sourceTree = "<group>"; };
+		EB21103C1CF7323500D191C0 /* TCInitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCInitialViewController.m; sourceTree = "<group>"; };
 		F662FB75C2225C903FB7C44E /* Pods-TwitterClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClientTests/Pods-TwitterClientTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -237,6 +240,8 @@
 			children = (
 				D980B2791CF6245800CC911E /* TCViewController.h */,
 				D980B27A1CF6245800CC911E /* TCViewController.m */,
+				EB21103B1CF7323500D191C0 /* TCInitialViewController.h */,
+				EB21103C1CF7323500D191C0 /* TCInitialViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 				EB21101A1CF6F62F00D191C0 /* TCAccount.m in Sources */,
 				D980B27B1CF6245800CC911E /* TCAppDelegate.m in Sources */,
 				EB2110201CF6F72D00D191C0 /* NSManagedObjectContext+TwitterClient.m in Sources */,
+				EB21103D1CF7323500D191C0 /* TCInitialViewController.m in Sources */,
 				D980B2801CF6247D00CC911E /* main.m in Sources */,
 				EB21101B1CF6F62F00D191C0 /* TCTimeLineItem+CoreDataProperties.m in Sources */,
 				D980B27D1CF6245800CC911E /* TCViewController.m in Sources */,

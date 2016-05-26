@@ -12,35 +12,24 @@
 
 @implementation TCTwitterClient
 
-- (void)requestToTwitterAccountWithCompletion:(void(^)(ACAccount *account))completion {
-	ACAccountType *accountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-	[self.accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
-		if (granted) {
-			NSArray *accounts = [self.accountStore accountsWithAccountType:accountType];
-			if (accounts.count > 0) {
-				ACAccount *twitterAccount = accounts.firstObject;
-				if (completion != nil) {
-					completion(twitterAccount);
-				}
-			}
-			else {
-				// TODO: Alert for login to twitter
-			}
-		}
-		else {
-		}
-	}];
+- (instancetype)initWithAccount:(ACAccount *)account {
+	self = [super init];
+	if (self != nil) {
+		_account = account;
+	}
+
+	return self;
 }
 
 - (void)loadFeedWithCompletion:(TCTwitterClientCompletionHandler)completion {
-	[self requestToTwitterAccountWithCompletion:^(ACAccount *account) {
-		SLRequest *twitterInfoRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:[NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"] parameters:[NSDictionary dictionaryWithObject:account.username forKey:@"screen_name"]];
-		twitterInfoRequest.account = account;
-		[twitterInfoRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-			if (completion != nil) {
-				completion(responseData);
-			}
-		}];
+	NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
+	NSDictionary *parameters = @{@"screen_name": self.account.username};
+	SLRequest *twitterInfoRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:parameters];
+	twitterInfoRequest.account = self.account;
+	[twitterInfoRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+		if (completion != nil) {
+			completion(responseData);
+		}
 	}];
 }
 
