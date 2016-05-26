@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class TCAccountManager;
+#import "TCTimeLineViewModel.h"
 
 @interface TCViewController : UITableViewController
 
-@property (nonatomic, strong) TCAccountManager *accountManager;
+@property (nonatomic, strong) TCTimeLineViewModel *timeLineViewModel;
 
 @end
 

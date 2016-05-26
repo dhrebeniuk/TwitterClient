@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import <ReactiveCocoa/RACSignal.h>
 
-@class TCAccount;
+@class TCAccountManager;
 @class TCTwitterClient;
 
 typedef void(^TCTimeLineViewModelCompletion)(NSError *error);
@@ -19,7 +19,7 @@ typedef void(^TCTimeLineViewModelCompletion)(NSError *error);
 
 @property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
 
-- (instancetype)initWithAccount:(TCAccount *)account twitterClient:(TCTwitterClient *)twitterClient;
+- (instancetype)initWithAccountManager:(TCAccountManager *)accountManager twitterClient:(TCTwitterClient *)twitterClient;
 
 - (void)loadTimeLineWithCompletionHandler:(TCTimeLineViewModelCompletion)completion;
 

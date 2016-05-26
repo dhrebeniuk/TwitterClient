@@ -7,13 +7,14 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <Kiwi/Kiwi.h>
 #import "TCTimeLineViewModel.h"
-#import "NSManagedObjectContext+TwitterClientTests.h"
-#import "TCAccount+CoreDataProperties.h"
-#import "TCTimeLineItem+CoreDataProperties.h"
 #import "TCTwitterClient.h"
+#import "TCAccountManager.h"
 
 @interface TCTimeLineViewModelTest : XCTestCase
+
+@property (nonatomic, strong) TCTimeLineViewModel *timeLineViewModel;
 
 @end
 
@@ -21,7 +22,10 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+
+	id accountManagerMock = [KWMock mockForClass:[TCAccountManager class]];
+	id twitterClientMock = [KWMock mockForClass:[TCTwitterClient class]];
+	self.timeLineViewModel = [[TCTimeLineViewModel alloc] initWithAccountManager:accountManagerMock twitterClient:twitterClientMock];
 }
 
 - (void)tearDown {
@@ -29,13 +33,12 @@
     [super tearDown];
 }
 
-- (void)testExample {
-	NSManagedObjectContext *context = [NSManagedObjectContext newMemoryManagedObjectContext];
-	TCAccount *account = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([TCAccount class]) inManagedObjectContext:context];
-	TCTwitterClient *twitterClient = [[TCTwitterClient alloc] init];
-	TCTimeLineViewModel *timeLineViewModel = [[TCTimeLineViewModel alloc] initWithAccount:account twitterClient:twitterClient];
+- (void)testViewModelBasics {
+	XCTAssertNotNil(self.timeLineViewModel);
 	
-	XCTAssertNotNil(timeLineViewModel);
+	[self.timeLineViewModel loadTimeLineWithCompletionHandler:^(NSError *error) {
+		
+	}];
 }
 
 @end

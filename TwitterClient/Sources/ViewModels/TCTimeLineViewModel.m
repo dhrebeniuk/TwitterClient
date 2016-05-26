@@ -8,11 +8,12 @@
 
 #import "TCTimeLineViewModel.h"
 #import "TCTwitterClient.h"
+#import "TCAccountManager.h"
 #import "TCAccount+CoreDataProperties.h"
 
 @interface TCTimeLineViewModel ()
 
-@property (nonatomic, strong) TCAccount *account;
+@property (nonatomic, strong) TCAccountManager *accountManager;
 @property (nonatomic, strong) TCTwitterClient *twitterClient;
 @property (nonatomic, strong, readwrite) RACSignal *updatedContentSignal;
 
@@ -21,10 +22,10 @@
 
 @implementation TCTimeLineViewModel
 
-- (instancetype)initWithAccount:(TCAccount *)account twitterClient:(TCTwitterClient *)twitterClient {
+- (instancetype)initWithAccountManager:(TCAccountManager *)accountManager twitterClient:(TCTwitterClient *)twitterClient {
 	self = [super init];
 	if (self != nil) {
-		_account = account;
+		_accountManager = accountManager;
 		_twitterClient = twitterClient;
 	}
 
@@ -32,8 +33,9 @@
 }
 
 - (void)loadTimeLineWithCompletionHandler:(TCTimeLineViewModelCompletion)completion {
-
-	
+	[self.twitterClient loadFeedWithCompletion:^(NSData *data) {
+		
+	}];
 }
 
 @end

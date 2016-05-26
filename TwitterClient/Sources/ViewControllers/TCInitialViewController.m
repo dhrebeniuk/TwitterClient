@@ -9,6 +9,7 @@
 #import "TCInitialViewController.h"
 #import "TCViewController.h"
 #import "TCAccountManager.h"
+#import "TCTwitterClient.h"
 
 @interface TCInitialViewController ()
 
@@ -47,8 +48,12 @@
     if ([segue.identifier isEqualToString:@"TimeLineSegue"]) {
 		UINavigationController *navigationViewController = segue.destinationViewController;
 		TCViewController *viewController = (TCViewController *)navigationViewController.topViewController;
+		
 		TCAccountManager *accountManager = [[TCAccountManager alloc] initWithSocialAccount:self.socialAccount inManagedObjectContext:self.managedObjectContext];
-		viewController.accountManager = accountManager;
+		TCTwitterClient *twitterClient = [[TCTwitterClient alloc] initWithAccount:self.socialAccount];
+
+		TCTimeLineViewModel *timeLineViewModel = [[TCTimeLineViewModel alloc] initWithAccountManager:accountManager twitterClient:twitterClient];
+		viewController.timeLineViewModel = timeLineViewModel;
 	}
 }
 
