@@ -31,7 +31,7 @@
 }
 
 - (void)testRequestForFeed {
-	NSData *responseData = [NSJSONSerialization dataWithJSONObject:@{} options:NSJSONWritingPrettyPrinted error:nil];
+	NSData *responseData = [NSJSONSerialization dataWithJSONObject:@[] options:NSJSONWritingPrettyPrinted error:nil];
 	stubRequest(@"GET", [@"^https://api.twitter.com/1.1/statuses/home_timeline.json.*" regex]).andReturnRawResponse(responseData);
 
 	TCTwitterClient *twitterClient = [[TCTwitterClient alloc] init];
@@ -39,8 +39,8 @@
 	twitterClient.accountStore = accountStore;
 	
 	__block BOOL requestFinished = NO;
-	__block NSDictionary* requestResults = nil;
-	[twitterClient loadFeedWithCompletion:^(NSDictionary *results) {
+	__block NSArray *requestResults = nil;
+	[twitterClient loadFeedWithCompletion:^(NSArray *results) {
 		requestFinished = YES;
 		requestResults = results;
 	}];
