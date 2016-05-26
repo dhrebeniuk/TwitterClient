@@ -10,6 +10,8 @@
 
 @interface NSManagedObjectContext (TwitterClient)
 
++ (NSManagedObjectModel *)twitterModel;
+
 + (NSManagedObjectContext *)newManagedObjectContextAtURL:(NSURL *)url;
 
 @end

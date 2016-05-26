@@ -207,6 +207,7 @@
 		D980B28A1CF65FBA00CC911E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				EB2110231CF6FBBC00D191C0 /* Tests */,
 				D980B28B1CF65FD500CC911E /* TCTwitterClientTest.m */,
 				EB2110211CF6F80900D191C0 /* NSManagedObjectContext+TwitterClientTest.m */,
 			);
@@ -244,6 +245,13 @@
 				EB21101F1CF6F72D00D191C0 /* NSManagedObjectContext+TwitterClient.m */,
 			);
 			path = ClassExtensions;
+			sourceTree = "<group>";
+		};
+		EB2110231CF6FBBC00D191C0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -10,11 +10,14 @@
 
 @implementation NSManagedObjectContext (TwitterClient)
 
-+ (NSManagedObjectContext *)newManagedObjectContextAtURL:(NSURL *)storeURL {
-	NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"TwitterClient" withExtension:@"momd"];
++ (NSManagedObjectModel *)twitterModel {
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"TwitterClient" withExtension:@"momd"];
 	NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-	
-	NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
+    return managedObjectModel;
+}
+
++ (NSManagedObjectContext *)newManagedObjectContextAtURL:(NSURL *)storeURL {
+	NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self twitterModel]];
 	NSError *error = nil;
 	if (![coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
 		abort();
