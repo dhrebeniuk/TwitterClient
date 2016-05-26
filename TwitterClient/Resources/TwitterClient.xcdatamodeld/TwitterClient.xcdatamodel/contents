@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Automatic">
-    <entity name="Account" syncable="YES">
+    <entity name="TCAccount" representedClassName=".TCAccount" syncable="YES">
         <attribute name="email" attributeType="String" syncable="YES"/>
-        <relationship name="timeLineItems" toMany="YES" deletionRule="Cascade" destinationEntity="TimeLineItem" inverseName="account" inverseEntity="TimeLineItem" syncable="YES"/>
+        <relationship name="timeLineItems" toMany="YES" deletionRule="Cascade" destinationEntity="TCTimeLineItem" inverseName="account" inverseEntity="TCTimeLineItem" syncable="YES"/>
     </entity>
-    <entity name="TimeLineItem" syncable="YES">
+    <entity name="TCTimeLineItem" representedClassName=".TCTimeLineItem" syncable="YES">
         <attribute name="createdAt" attributeType="Date" syncable="YES"/>
         <attribute name="favoriteCount" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="favorited" attributeType="Boolean" syncable="YES"/>
@@ -14,10 +14,10 @@
         <attribute name="retweetCount" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="retweeted" attributeType="Boolean" syncable="YES"/>
         <attribute name="text" attributeType="String" syncable="YES"/>
-        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="timeLineItems" inverseEntity="Account" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TCAccount" inverseName="timeLineItems" inverseEntity="TCAccount" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Account" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="TimeLineItem" positionX="-54" positionY="0" width="128" height="195"/>
+        <element name="TCAccount" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="TCTimeLineItem" positionX="-54" positionY="0" width="128" height="195"/>
     </elements>
 </model>
