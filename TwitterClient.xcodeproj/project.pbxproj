@@ -27,6 +27,7 @@
 		EB2110201CF6F72D00D191C0 /* NSManagedObjectContext+TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EB21101F1CF6F72D00D191C0 /* NSManagedObjectContext+TwitterClient.m */; };
 		EB2110261CF6FC9900D191C0 /* NSManagedObjectContext+TwitterClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2110241CF6FC9900D191C0 /* NSManagedObjectContext+TwitterClientTest.m */; };
 		EB2110271CF6FC9900D191C0 /* TCTwitterClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2110251CF6FC9900D191C0 /* TCTwitterClientTest.m */; };
+		EB21102B1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB21102A1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		EB21101F1CF6F72D00D191C0 /* NSManagedObjectContext+TwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+TwitterClient.m"; sourceTree = "<group>"; };
 		EB2110241CF6FC9900D191C0 /* NSManagedObjectContext+TwitterClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+TwitterClientTest.m"; sourceTree = "<group>"; };
 		EB2110251CF6FC9900D191C0 /* TCTwitterClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTwitterClientTest.m; sourceTree = "<group>"; };
+		EB2110291CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+TwitterClientTests.h"; sourceTree = "<group>"; };
+		EB21102A1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+TwitterClientTests.m"; sourceTree = "<group>"; };
 		F662FB75C2225C903FB7C44E /* Pods-TwitterClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClientTests/Pods-TwitterClientTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +210,7 @@
 		D980B28A1CF65FBA00CC911E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				EB2110281CF6FCC200D191C0 /* ClassExtensions */,
 				EB2110231CF6FBBC00D191C0 /* Tests */,
 			);
 			path = Sources;
@@ -252,6 +256,15 @@
 				EB2110251CF6FC9900D191C0 /* TCTwitterClientTest.m */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		EB2110281CF6FCC200D191C0 /* ClassExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				EB2110291CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.h */,
+				EB21102A1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m */,
+			);
+			path = ClassExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB21102B1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m in Sources */,
 				EB2110261CF6FC9900D191C0 /* NSManagedObjectContext+TwitterClientTest.m in Sources */,
 				EB2110271CF6FC9900D191C0 /* TCTwitterClientTest.m in Sources */,
 				D980B26B1CF6239700CC911E /* TwitterClientTests.m in Sources */,
