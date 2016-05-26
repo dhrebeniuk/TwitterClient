@@ -30,7 +30,17 @@
 - (TCAccount *)account {
 	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([TCAccount class])];
 	fetchRequest.predicate = [NSPredicate predicateWithFormat:@"email=%@", self.socialAccount.username];
-	TCAccount *account = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] firstObject];
+	
+	NSArray<TCAccount *> *accounts = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+	
+	TCAccount *account = nil;
+	if (accounts.count > 0) {
+		account = accounts.firstObject;
+	}
+	else {
+		account = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([TCAccount class]) inManagedObjectContext:self.managedObjectContext];
+		account.email = self.socialAccount.username;
+	}
 	
 	return account;
 }

@@ -26,8 +26,6 @@ static NSString *const kTCTestAccount = @"test@test.com";
     [super setUp];
 	
 	NSManagedObjectContext *context = [NSManagedObjectContext newMemoryManagedObjectContext];
-	TCAccount *account = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([TCAccount class]) inManagedObjectContext:context];
-	account.email = kTCTestAccount;
 	
 	id socialAccountMock = [KWMock mockForClass:[ACAccount class]];
 	[socialAccountMock stubMessagePattern:[KWMessagePattern messagePatternWithSelector:@selector(username)] andReturn:kTCTestAccount];
@@ -45,6 +43,8 @@ static NSString *const kTCTestAccount = @"test@test.com";
 	XCTAssertNotNil(account);
 	
 	XCTAssertEqualObjects(account.email, kTCTestAccount);
+	
+	XCTAssertEqualObjects(self.accountManager.account, account);
 }
 
 @end
