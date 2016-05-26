@@ -19,6 +19,8 @@ typedef void(^TCTimeLineViewModelCompletion)(NSError *error);
 
 @property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
 
+@property (nonatomic, strong, readonly) NSString *title;
+
 - (instancetype)initWithAccountManager:(TCAccountManager *)accountManager twitterClient:(TCTwitterClient *)twitterClient;
 
 - (void)loadTimeLineWithCompletionHandler:(TCTimeLineViewModelCompletion)completion;

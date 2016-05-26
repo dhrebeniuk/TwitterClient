@@ -17,7 +17,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	
+
+	self.title = self.timeLineViewModel.title;
 }
 
 @end

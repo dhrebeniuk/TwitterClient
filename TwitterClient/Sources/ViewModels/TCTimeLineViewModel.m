@@ -38,4 +38,8 @@
 	}];
 }
 
+- (NSString *)title {
+	return self.accountManager.socialAccount.username;
+}
+
 @end
