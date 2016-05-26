@@ -20,7 +20,7 @@
 			NSArray *accounts = [self.accountStore accountsWithAccountType:accountType];
 			if (accounts.count > 0) {
 				ACAccount *twitterAccount = accounts.firstObject;
-				SLRequest *twitterInfoRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:[NSURL URLWithString:@"https://api.twitter.com/1.1/users/show.json"] parameters:[NSDictionary dictionaryWithObject:twitterAccount.username forKey:@"screen_name"]];
+				SLRequest *twitterInfoRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:[NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"] parameters:[NSDictionary dictionaryWithObject:twitterAccount.username forKey:@"screen_name"]];
 				twitterInfoRequest.account = twitterAccount;
 				[twitterInfoRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
 					NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];

@@ -32,7 +32,7 @@
 
 - (void)testRequestForFeed {
 	NSData *responseData = [NSJSONSerialization dataWithJSONObject:@{} options:NSJSONWritingPrettyPrinted error:nil];
-	stubRequest(@"GET", [@"^https://api.twitter.com/1.1/users/show.json.*" regex]).andReturnRawResponse(responseData);
+	stubRequest(@"GET", [@"^https://api.twitter.com/1.1/statuses/home_timeline.json.*" regex]).andReturnRawResponse(responseData);
 
 	TCTwitterClient *twitterClient = [[TCTwitterClient alloc] init];
 	ACAccountStore *accountStore = [[ACAccountStore alloc] init];
