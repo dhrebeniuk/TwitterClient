@@ -8,8 +8,6 @@
 
 #import "TCAppDelegate.h"
 #import "TCTwitterClient.h"
-#import "NSManagedObjectContext+TwitterClient.h"
-#import <CoreData/CoreData.h>
 #import <Accounts/Accounts.h>
 
 @interface TCAppDelegate ()
