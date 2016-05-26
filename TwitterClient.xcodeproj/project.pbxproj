@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2310EECA97AE580CD8ADB5BC /* libPods-TwitterClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0644B1669EE58C2937F36F9C /* libPods-TwitterClientTests.a */; };
 		928CACEC6CEB01BD10934EC9 /* libPods-TwitterClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46901FD4DEF8F413CAFAF9C1 /* libPods-TwitterClient.a */; };
+		D906817A1CF78C61007C2840 /* TCAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D90681791CF78C61007C2840 /* TCAccountManager.m */; };
+		D906817C1CF78C7B007C2840 /* TCAccountManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D906817B1CF78C7B007C2840 /* TCAccountManagerTest.m */; };
 		D980B2581CF6239700CC911E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D980B2561CF6239700CC911E /* Main.storyboard */; };
 		D980B25B1CF6239700CC911E /* TwitterClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D980B2591CF6239700CC911E /* TwitterClient.xcdatamodeld */; };
 		D980B25D1CF6239700CC911E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D980B25C1CF6239700CC911E /* Assets.xcassets */; };
@@ -52,6 +54,9 @@
 		63F94D44356F4AA0B10918A6 /* Pods-TwitterClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClientTests/Pods-TwitterClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		85AAAEEB01BC68D7D3219A21 /* Pods-TwitterClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.release.xcconfig"; sourceTree = "<group>"; };
 		C4D7337A4819AFD5A09ABF93 /* Pods-TwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
+		D90681781CF78C61007C2840 /* TCAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAccountManager.h; sourceTree = "<group>"; };
+		D90681791CF78C61007C2840 /* TCAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAccountManager.m; sourceTree = "<group>"; };
+		D906817B1CF78C7B007C2840 /* TCAccountManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAccountManagerTest.m; sourceTree = "<group>"; };
 		D980B24A1CF6239700CC911E /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D980B2571CF6239700CC911E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D980B25A1CF6239700CC911E /* TwitterClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitterClient.xcdatamodel; sourceTree = "<group>"; };
@@ -222,6 +227,8 @@
 				D980B2881CF6429A00CC911E /* TCTwitterClient.m */,
 				EB21102C1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.h */,
 				EB21102D1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.m */,
+				D90681781CF78C61007C2840 /* TCAccountManager.h */,
+				D90681791CF78C61007C2840 /* TCAccountManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -277,6 +284,7 @@
 				EB2110251CF6FC9900D191C0 /* TCTwitterClientTest.m */,
 				EB21102F1CF6FE7C00D191C0 /* TCTwitterTimeLineDeserializerTest.m */,
 				EB2110391CF71F7500D191C0 /* TCTimeLineViewModelTest.m */,
+				D906817B1CF78C7B007C2840 /* TCAccountManagerTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -507,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D906817A1CF78C61007C2840 /* TCAccountManager.m in Sources */,
 				EB2110191CF6F62F00D191C0 /* TCAccount+CoreDataProperties.m in Sources */,
 				D980B2891CF6429A00CC911E /* TCTwitterClient.m in Sources */,
 				EB2110381CF71F5700D191C0 /* TCTimeLineViewModel.m in Sources */,
@@ -531,6 +540,7 @@
 				EB21102B1CF6FCE500D191C0 /* NSManagedObjectContext+TwitterClientTests.m in Sources */,
 				EB2110261CF6FC9900D191C0 /* NSManagedObjectContext+TwitterClientTest.m in Sources */,
 				EB2110271CF6FC9900D191C0 /* TCTwitterClientTest.m in Sources */,
+				D906817C1CF78C7B007C2840 /* TCAccountManagerTest.m in Sources */,
 				EB21103A1CF71F7500D191C0 /* TCTimeLineViewModelTest.m in Sources */,
 				D980B26B1CF6239700CC911E /* TwitterClientTests.m in Sources */,
 			);

@@ -8,6 +8,7 @@
 
 #import "TCViewController.h"
 #import "TCTwitterClient.h"
+#import "TCAccountManager.h"
 
 @interface TCViewController ()
 
@@ -20,7 +21,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	self.twitterClient = [[TCTwitterClient alloc] initWithAccount:self.twitterAccount];
+	self.twitterClient = [[TCTwitterClient alloc] initWithAccount:self.accountManager.socialAccount];
 	[self.twitterClient loadFeedWithCompletion:^(NSData *data) {
 		
 	}];

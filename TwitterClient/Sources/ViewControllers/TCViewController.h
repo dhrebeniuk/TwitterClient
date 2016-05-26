@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class ACAccount;
+@class TCAccountManager;
 
 @interface TCViewController : UITableViewController
 
-@property (nonatomic, strong) ACAccount *twitterAccount;
+@property (nonatomic, strong) TCAccountManager *accountManager;
 
 @end
 

@@ -8,10 +8,11 @@
 
 #import "TCInitialViewController.h"
 #import "TCViewController.h"
+#import "TCAccountManager.h"
 
 @interface TCInitialViewController ()
 
-@property (nonatomic, strong) ACAccount *twitterAccount;
+@property (nonatomic, strong) ACAccount *socialAccount;
 
 @end
 
@@ -25,7 +26,7 @@
 		if (granted) {
 			NSArray *accounts = [self.accountStore accountsWithAccountType:accountType];
 			if (accounts.count > 0) {
-				self.twitterAccount = accounts.firstObject;
+				self.socialAccount = accounts.firstObject;
 				dispatch_async(dispatch_get_main_queue(), ^{
 					[self performSegueWithIdentifier:@"TimeLineSegue" sender:nil];
 				});
@@ -46,7 +47,8 @@
     if ([segue.identifier isEqualToString:@"TimeLineSegue"]) {
 		UINavigationController *navigationViewController = segue.destinationViewController;
 		TCViewController *viewController = (TCViewController *)navigationViewController.topViewController;
-		viewController.twitterAccount = self.twitterAccount;
+		TCAccountManager *accountManager = [[TCAccountManager alloc] initWithSocialAccount:self.socialAccount inManagedObjectContext:nil];
+		viewController.accountManager = accountManager;
 	}
 }
 
