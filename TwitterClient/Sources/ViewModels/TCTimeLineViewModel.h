@@ -8,11 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <ReactiveCocoa/RACSignal.h>
 
+@class TCAccount;
 @class TCTwitterClient;
+
+typedef void(^TCTimeLineViewModelCompletion)(NSError *error);
 
 @interface TCTimeLineViewModel : NSObject
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext twitterClient:(TCTwitterClient *)twitterClient;
+@property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
+
+- (instancetype)initWithAccount:(TCAccount *)account twitterClient:(TCTwitterClient *)twitterClient;
+
+- (void)loadTimeLineWithCompletionHandler:(TCTimeLineViewModelCompletion)completion;
 
 @end

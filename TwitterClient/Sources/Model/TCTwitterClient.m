@@ -14,7 +14,6 @@
 
 - (void)requestToTwitterAccountWithCompletion:(void(^)(ACAccount *account))completion {
 	ACAccountType *accountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-
 	[self.accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
 		if (granted) {
 			NSArray *accounts = [self.accountStore accountsWithAccountType:accountType];

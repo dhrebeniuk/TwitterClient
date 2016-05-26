@@ -8,25 +8,32 @@
 
 #import "TCTimeLineViewModel.h"
 #import "TCTwitterClient.h"
+#import "TCAccount+CoreDataProperties.h"
 
 @interface TCTimeLineViewModel ()
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) TCAccount *account;
 @property (nonatomic, strong) TCTwitterClient *twitterClient;
+@property (nonatomic, strong, readwrite) RACSignal *updatedContentSignal;
 
 @end
 
 
 @implementation TCTimeLineViewModel
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext twitterClient:(TCTwitterClient *)twitterClient {
+- (instancetype)initWithAccount:(TCAccount *)account twitterClient:(TCTwitterClient *)twitterClient {
 	self = [super init];
 	if (self != nil) {
-		_managedObjectContext = managedObjectContext;
+		_account = account;
 		_twitterClient = twitterClient;
 	}
 
 	return self;
+}
+
+- (void)loadTimeLineWithCompletionHandler:(TCTimeLineViewModelCompletion)completion {
+
+	
 }
 
 @end
