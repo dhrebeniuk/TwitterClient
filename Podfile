@@ -3,6 +3,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'TwitterClient', :exclusive => false do
 	platform :ios, '8.0'
 	pod 'ReactiveCocoa', '~> 2.5'
+	pod 'Typhoon', '~> 3.4.7'
 end
 
 target 'TwitterClientTests', :exclusive => false do
