@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Automatic">
+    <entity name="Account" syncable="YES">
+        <attribute name="email" attributeType="String" syncable="YES"/>
+        <relationship name="timeLineItems" toMany="YES" deletionRule="Cascade" destinationEntity="TimeLineItem" inverseName="account" inverseEntity="TimeLineItem" syncable="YES"/>
+    </entity>
+    <entity name="TimeLineItem" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" syncable="YES"/>
+        <attribute name="favoriteCount" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="favorited" attributeType="Boolean" syncable="YES"/>
+        <attribute name="identifier" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="imageURLString" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="retweetCount" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="retweeted" attributeType="Boolean" syncable="YES"/>
+        <attribute name="text" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="timeLineItems" inverseEntity="Account" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Account" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="TimeLineItem" positionX="-54" positionY="0" width="128" height="195"/>
+    </elements>
 </model>
