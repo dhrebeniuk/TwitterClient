@@ -7,6 +7,7 @@
 //
 
 #import "TCAccountManager.h"
+#import <libextobjc/EXTKeyPathCoding.h>
 
 @interface TCAccountManager ()
 
@@ -28,12 +29,12 @@
 }
 
 - (TCAccount *)account {
+	TCAccount *account = nil;
 	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([TCAccount class])];
-	fetchRequest.predicate = [NSPredicate predicateWithFormat:@"email=%@", self.socialAccount.username];
-	
+	NSString *predicateFormat = [[NSString stringWithFormat:@"%@=", @keypath(account, email)] stringByAppendingString:@"%@"];
+	fetchRequest.predicate = [NSPredicate predicateWithFormat:predicateFormat, self.socialAccount.username];
 	NSArray<TCAccount *> *accounts = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
 	
-	TCAccount *account = nil;
 	if (accounts.count > 0) {
 		account = accounts.firstObject;
 	}
