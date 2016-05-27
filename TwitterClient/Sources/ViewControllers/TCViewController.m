@@ -17,17 +17,29 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
-	self.title = self.timeLineViewModel.title;
-	[self.timeLineViewModel loadTimeLineWithCompletionHandler:^(NSError *error) {
-		// TODO: error case
-	}];
 	
 	@weakify(self);
 	[self.timeLineViewModel.updatedContentSignal subscribeNext:^(id x) {
 		@strongify(self);
 		[self.tableView reloadData];
 	}];
+	
+	[self loadTimeLine];
+}
+
+- (void)loadTimeLine {
+	self.title = self.timeLineViewModel.title;
+	[self.refreshControl beginRefreshing];
+	@weakify(self);
+	[self.timeLineViewModel loadTimeLineWithCompletionHandler:^(NSError *error) {
+		@strongify(self);
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.refreshControl endRefreshing];
+		});
+	}];
+}
+- (IBAction)refreshContent:(id)sender {
+	[self loadTimeLine];
 }
 
 #pragma mark - UITableViewDataSource

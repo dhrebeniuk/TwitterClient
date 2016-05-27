@@ -59,10 +59,16 @@
 			[twitterTimeLineDeserializer deserializeTimeLineData:data forAccount:account];
 			
 			[privateManagedObjectContext save:nil];
+			
+			if (completion != nil) {
+				completion(nil);
+			}
 		}
 		else {
 			if (error != nil) {
-				// TODO: error case
+				if (completion != nil) {
+					completion(error);
+				}
 			}
 		}
 	}];
