@@ -50,13 +50,21 @@
 	NSManagedObjectContext *privateManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
 	privateManagedObjectContext.parentContext = managedObjectContext;
 	NSManagedObjectID *accountID = account.objectID;
-	[self.twitterClient loadFeedWithCompletion:^(NSData *data) {
-		TCAccount *account = [privateManagedObjectContext objectWithID:accountID];
+	[self.twitterClient loadFeedWithCompletion:^(NSData *data, NSError *error) {
 		
-		TCTwitterTimeLineDeserializer *twitterTimeLineDeserializer = [[TCTwitterTimeLineDeserializer alloc] init];
-		[twitterTimeLineDeserializer deserializeTimeLineData:data forAccount:account];
-		
-		[privateManagedObjectContext save:nil];
+		if (data != nil) {
+			TCAccount *account = [privateManagedObjectContext objectWithID:accountID];
+
+			TCTwitterTimeLineDeserializer *twitterTimeLineDeserializer = [[TCTwitterTimeLineDeserializer alloc] init];
+			[twitterTimeLineDeserializer deserializeTimeLineData:data forAccount:account];
+			
+			[privateManagedObjectContext save:nil];
+		}
+		else {
+			if (error != nil) {
+				// TODO: error case
+			}
+		}
 	}];
 }
 

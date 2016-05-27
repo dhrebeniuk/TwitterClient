@@ -55,7 +55,7 @@ static NSString *const kTCTestAccount = @"test@test.com";
 
 	TCTwitterClientCompletionHandler block = self.twitterMockSpy.argument;
 	NSData *data = [NSData dataWithContentsOfURL:[[NSBundle bundleForClass:self.class] URLForResource:@"TimeLineResponse" withExtension:@"json"]];
-	block(data);
+	block(data, nil);
 	
 	XCTAssertEqual(self.timeLineViewModel.timeLineItemsCount, 20);
 }

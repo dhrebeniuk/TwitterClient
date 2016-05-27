@@ -41,7 +41,7 @@
 	TCTwitterClient *twitterClient = [[TCTwitterClient alloc] initWithAccount:account];
 	__block BOOL requestFinished = NO;
 	__block NSData *receivedResponseData = nil;
-	[twitterClient loadFeedWithCompletion:^(NSData *data) {
+	[twitterClient loadFeedWithCompletion:^(NSData *data, NSError *error) {
 		requestFinished = YES;
 		receivedResponseData = data;
 	}];

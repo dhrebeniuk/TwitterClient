@@ -28,7 +28,7 @@
 	twitterInfoRequest.account = self.account;
 	[twitterInfoRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
 		if (completion != nil) {
-			completion(responseData);
+			completion(responseData, error);
 		}
 	}];
 }

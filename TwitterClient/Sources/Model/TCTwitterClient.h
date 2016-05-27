@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^TCTwitterClientCompletionHandler)(NSData *data);
+typedef void(^TCTwitterClientCompletionHandler)(NSData *data, NSError *error);
 
 @class ACAccount;
 
