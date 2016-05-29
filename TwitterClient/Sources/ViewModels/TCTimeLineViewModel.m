@@ -12,6 +12,7 @@
 #import "TCAccount+CoreDataProperties.h"
 #import "TCTimeLineItem+CoreDataProperties.h"
 #import "TCTwitterTimeLineDeserializer.h"
+#import "TCTimeLineViewModelItem.h"
 
 @interface TCTimeLineViewModel () <NSFetchedResultsControllerDelegate>
 
@@ -80,6 +81,13 @@
 
 - (NSUInteger)timeLineItemsCount {
 	return [self.fetchedResultsController.sections.firstObject numberOfObjects];
+}
+
+- (TCTimeLineViewModelItem *)timelineItemAtIndex:(NSUInteger)index {
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+	TCTimeLineItem *timeLineItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	
+	return [[TCTimeLineViewModelItem alloc] initWithTimeLineItem:timeLineItem];
 }
 
 #pragma mark - NSFetchedResultsController

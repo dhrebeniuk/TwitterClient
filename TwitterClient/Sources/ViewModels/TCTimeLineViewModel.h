@@ -12,6 +12,7 @@
 
 @class TCAccountManager;
 @class TCTwitterClient;
+@class TCTimeLineViewModelItem;
 
 typedef void(^TCTimeLineViewModelCompletion)(NSError *error);
 
@@ -26,5 +27,7 @@ typedef void(^TCTimeLineViewModelCompletion)(NSError *error);
 - (instancetype)initWithAccountManager:(TCAccountManager *)accountManager twitterClient:(TCTwitterClient *)twitterClient;
 
 - (void)loadTimeLineWithCompletionHandler:(TCTimeLineViewModelCompletion)completion;
+
+- (TCTimeLineViewModelItem *)timelineItemAtIndex:(NSUInteger)index;
 
 @end

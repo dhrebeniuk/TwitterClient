@@ -9,6 +9,7 @@
 #import "TCViewController.h"
 #import "TCTwitterClient.h"
 #import "TCTimeLineViewCell.h"
+#import "TCTimeLineViewModelItem.h"
 
 @interface TCViewController ()
 
@@ -39,6 +40,7 @@
 		});
 	}];
 }
+
 - (IBAction)refreshContent:(id)sender {
 	[self loadTimeLine];
 }
@@ -51,7 +53,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	TCTimeLineViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timeLineCell" forIndexPath:indexPath];
-	cell.backgroundColor = [UIColor yellowColor];
+	TCTimeLineViewModelItem *timeLineViewModelItem =[self.timeLineViewModel timelineItemAtIndex:indexPath.row];
+	cell.titleLabel.text = timeLineViewModelItem.userName;
+	cell.detailsLabel.text = timeLineViewModelItem.text;
 	
 	return cell;
 }

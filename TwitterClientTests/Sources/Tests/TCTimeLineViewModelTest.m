@@ -58,6 +58,8 @@ static NSString *const kTCTestAccount = @"test@test.com";
 	block(data, nil);
 	
 	XCTAssertEqual(self.timeLineViewModel.timeLineItemsCount, 20);
+	
+	XCTAssertNotNil([self.timeLineViewModel timelineItemAtIndex:0]);
 }
 
 @end
