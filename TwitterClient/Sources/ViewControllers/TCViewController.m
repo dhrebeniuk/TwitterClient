@@ -12,6 +12,7 @@
 #import "TCTimeLineViewModelItem.h"
 #import "SCNetworkReachability.h"
 #import <Social/Social.h>
+#import <Haneke/Haneke.h>
 
 @interface TCViewController ()
 
@@ -95,6 +96,7 @@
 	TCTimeLineViewModelItem *timeLineViewModelItem =[self.timeLineViewModel timelineItemAtIndex:indexPath.row];
 	cell.titleLabel.text = timeLineViewModelItem.userName;
 	cell.detailsLabel.text = timeLineViewModelItem.text;
+	[cell.timeLineImageView hnk_setImageFromURL:timeLineViewModelItem.imageURL];
 	
 	return cell;
 }

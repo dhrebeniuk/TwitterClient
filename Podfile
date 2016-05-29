@@ -5,6 +5,7 @@ target 'TwitterClient', :exclusive => false do
 	pod 'ReactiveCocoa', '~> 2.5'
 	pod 'libextobjc', '~> 0.4.1'
 	pod 'SCNetworkReachability', '~> 2.0.5'
+	pod 'Haneke', '~> 1.0'
 end
 
 target 'TwitterClientTests', :exclusive => false do
