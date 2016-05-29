@@ -23,20 +23,24 @@
     [super viewDidLoad];
 	
 	ACAccountType *accountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+	@weakify(self);
 	[self.accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
 		if (granted) {
 			NSArray *accounts = [self.accountStore accountsWithAccountType:accountType];
 			if (accounts.count > 0) {
 				self.socialAccount = accounts.firstObject;
 				dispatch_async(dispatch_get_main_queue(), ^{
+					@strongify(self);
 					[self performSegueWithIdentifier:@"TimeLineSegue" sender:nil];
 				});
 			}
 			else {
-				// TODO: Alert for login to twitter
+				dispatch_async(dispatch_get_main_queue(), ^{
+					@strongify(self);
+					UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Twitter Error", nil) message:NSLocalizedString(@"Please login to Twitter usign system settings", nil) preferredStyle:UIAlertControllerStyleAlert];
+					[self presentViewController:alertController animated:YES completion:nil];
+				});
 			}
-		}
-		else {
 		}
 	}];
 	
