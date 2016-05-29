@@ -30,6 +30,7 @@
 }
 
 - (void)loadTimeLine {
+	self.refreshControl.attributedTitle = nil;
 	self.title = self.timeLineViewModel.title;
 	[self.refreshControl beginRefreshing];
 	@weakify(self);
@@ -37,6 +38,9 @@
 		@strongify(self);
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[self.refreshControl endRefreshing];
+			if (error != nil) {
+				self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:error.domain];
+			}
 		});
 	}];
 }
