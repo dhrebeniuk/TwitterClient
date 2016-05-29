@@ -83,7 +83,7 @@
 		D980B27F1CF6247D00CC911E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D980B2821CF6385100CC911E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D980B2841CF638CA00CC911E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		D980B2871CF6429A00CC911E /* TCTwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTwitterClient.h; sourceTree = "<group>"; };
+		D980B2871CF6429A00CC911E /* TCTwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCTwitterClient.h; path = ../TCTwitterClient.h; sourceTree = "<group>"; };
 		D980B2881CF6429A00CC911E /* TCTwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTwitterClient.m; sourceTree = "<group>"; };
 		EB2110111CF6F62F00D191C0 /* TCAccount+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TCAccount+CoreDataProperties.h"; sourceTree = "<group>"; };
 		EB2110121CF6F62F00D191C0 /* TCAccount+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TCAccount+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -243,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				EB2110081CF6F5D000D191C0 /* CoreDataMappings */,
-				D980B2871CF6429A00CC911E /* TCTwitterClient.h */,
 				D980B2881CF6429A00CC911E /* TCTwitterClient.m */,
 				EB21102C1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.h */,
 				EB21102D1CF6FDC400D191C0 /* TCTwitterTimeLineDeserializer.m */,
@@ -276,6 +275,7 @@
 		EB2110081CF6F5D000D191C0 /* CoreDataMappings */ = {
 			isa = PBXGroup;
 			children = (
+				D980B2871CF6429A00CC911E /* TCTwitterClient.h */,
 				EB2110111CF6F62F00D191C0 /* TCAccount+CoreDataProperties.h */,
 				EB2110121CF6F62F00D191C0 /* TCAccount+CoreDataProperties.m */,
 				EB2110131CF6F62F00D191C0 /* TCAccount.h */,

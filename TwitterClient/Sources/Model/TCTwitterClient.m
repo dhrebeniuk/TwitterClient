@@ -10,23 +10,27 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 
+@interface TCTwitterClient ()
+
+@property (nonatomic, strong) SLRequest *request;
+
+@end
+
 @implementation TCTwitterClient
 
-- (instancetype)initWithAccount:(ACAccount *)account {
+- (instancetype)initWithAccount:(ACAccount *)account fromRequest:(SLRequest *)request {
 	self = [super init];
 	if (self != nil) {
 		_account = account;
+		_request = request;
 	}
 
 	return self;
 }
 
 - (void)loadFeedWithCompletion:(TCTwitterClientCompletionHandler)completion {
-	NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
-	NSDictionary *parameters = @{@"screen_name": self.account.username};
-	SLRequest *twitterInfoRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:parameters];
-	twitterInfoRequest.account = self.account;
-	[twitterInfoRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+	self.request.account = self.account;
+	[self.request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
 		if (completion != nil) {
 			completion(responseData, error);
 		}

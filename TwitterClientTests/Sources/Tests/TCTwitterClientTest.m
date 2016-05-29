@@ -7,8 +7,9 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <Nocilla/Nocilla.h>
+#import <Kiwi/Kiwi.h>
 #import <Accounts/Accounts.h>
+#import <Social/Social.h>
 #import "TCTwitterClient.h"
 
 @interface TCTwitterClientTest : XCTestCase
@@ -17,28 +18,13 @@
 
 @implementation TCTwitterClientTest
 
-- (void)setUp {
-	[super setUp];
-	
-	[[LSNocilla sharedInstance] start];
-}
-
-- (void)tearDown {
-	[[LSNocilla sharedInstance] stop];
-	[[LSNocilla sharedInstance] clearStubs];
-
-	[super tearDown];
-}
-
 - (void)testRequestForFeed {
-	NSData *responseData = [NSJSONSerialization dataWithJSONObject:@[] options:NSJSONWritingPrettyPrinted error:nil];
-	stubRequest(@"GET", [@"^https://api.twitter.com/1.1/statuses/home_timeline.json.*" regex]).andReturnRawResponse(responseData);
-
-	ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-	ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-	ACAccount *account = [[accountStore accountsWithAccountType:accountType] firstObject];
-
-	TCTwitterClient *twitterClient = [[TCTwitterClient alloc] initWithAccount:account];
+	id accountMock = [KWMock mockForClass:[ACAccount class]];
+	id requestMock = [KWMock mockForClass:[SLRequest class]];
+	[requestMock stubMessagePattern:[KWMessagePattern messagePatternWithSelector:@selector(setAccount:) argumentFilters:@[accountMock]] andReturn:nil overrideExisting:NO];
+	KWCaptureSpy *twitterMockSpy = [requestMock captureArgument:@selector(performRequestWithHandler:) atIndex:0];
+	
+	TCTwitterClient *twitterClient = [[TCTwitterClient alloc] initWithAccount:accountMock fromRequest:requestMock];
 	__block BOOL requestFinished = NO;
 	__block NSData *receivedResponseData = nil;
 	[twitterClient loadFeedWithCompletion:^(NSData *data, NSError *error) {
@@ -46,13 +32,17 @@
 		receivedResponseData = data;
 	}];
 
+	SLRequestHandler block = twitterMockSpy.argument;
+	NSData *data = [NSData dataWithContentsOfURL:[[NSBundle bundleForClass:self.class] URLForResource:@"TimeLineResponse" withExtension:@"json"]];
+	block(data, nil, nil);
+	
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	while ([runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
 		if (requestFinished) {
 			break;
 		}
 	}
-
+	
 	XCTAssertNotNil(receivedResponseData);
 }
 

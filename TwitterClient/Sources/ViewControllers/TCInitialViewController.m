@@ -10,6 +10,7 @@
 #import "TCViewController.h"
 #import "TCAccountManager.h"
 #import "TCTwitterClient.h"
+#import <Social/Social.h>
 
 @interface TCInitialViewController ()
 
@@ -54,7 +55,9 @@
 		TCViewController *viewController = (TCViewController *)navigationViewController.topViewController;
 		
 		TCAccountManager *accountManager = [[TCAccountManager alloc] initWithSocialAccount:self.socialAccount inManagedObjectContext:self.managedObjectContext];
-		TCTwitterClient *twitterClient = [[TCTwitterClient alloc] initWithAccount:self.socialAccount];
+		NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
+		SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:@{@"screen_name": self.socialAccount.username}];
+		TCTwitterClient *twitterClient = [[TCTwitterClient alloc] initWithAccount:self.socialAccount fromRequest:request];
 
 		TCTimeLineViewModel *timeLineViewModel = [[TCTimeLineViewModel alloc] initWithAccountManager:accountManager twitterClient:twitterClient];
 		viewController.timeLineViewModel = timeLineViewModel;
