@@ -13,6 +13,6 @@
 
 @interface TCTwitterTimeLineDeserializer : NSObject
 
-- (void)deserializeTimeLineData:(NSData *)data forAccount:(TCAccount *)account;
+- (BOOL)deserializeTimeLineData:(NSData *)data forAccount:(TCAccount *)account error:(NSError **)error;
 
 @end

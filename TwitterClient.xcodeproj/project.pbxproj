@@ -14,6 +14,7 @@
 		D96D413F1CFB4A18007B20AC /* TCTimeLineViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D96D413E1CFB4A18007B20AC /* TCTimeLineViewCell.m */; };
 		D96D41421CFB5193007B20AC /* TCTimeLineViewModelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D96D41411CFB5193007B20AC /* TCTimeLineViewModelItem.m */; };
 		D96D41441CFB6EC3007B20AC /* TCTimeLineViewModelItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D96D41431CFB6EC3007B20AC /* TCTimeLineViewModelItemTest.m */; };
+		D96D41461CFB834B007B20AC /* TimeLineResponseError.json in Resources */ = {isa = PBXBuildFile; fileRef = D96D41451CFB834B007B20AC /* TimeLineResponseError.json */; };
 		D980B2581CF6239700CC911E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D980B2561CF6239700CC911E /* Main.storyboard */; };
 		D980B25B1CF6239700CC911E /* TwitterClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D980B2591CF6239700CC911E /* TwitterClient.xcdatamodeld */; };
 		D980B25D1CF6239700CC911E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D980B25C1CF6239700CC911E /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		D96D41401CFB5193007B20AC /* TCTimeLineViewModelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTimeLineViewModelItem.h; sourceTree = "<group>"; };
 		D96D41411CFB5193007B20AC /* TCTimeLineViewModelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTimeLineViewModelItem.m; sourceTree = "<group>"; };
 		D96D41431CFB6EC3007B20AC /* TCTimeLineViewModelItemTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTimeLineViewModelItemTest.m; sourceTree = "<group>"; };
+		D96D41451CFB834B007B20AC /* TimeLineResponseError.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TimeLineResponseError.json; sourceTree = "<group>"; };
 		D980B24A1CF6239700CC911E /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D980B2571CF6239700CC911E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D980B25A1CF6239700CC911E /* TwitterClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitterClient.xcdatamodel; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				EB2110331CF6FF2F00D191C0 /* TimeLineResponse.json */,
+				D96D41451CFB834B007B20AC /* TimeLineResponseError.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96D41461CFB834B007B20AC /* TimeLineResponseError.json in Resources */,
 				EB2110341CF6FF2F00D191C0 /* TimeLineResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -56,13 +56,14 @@
 		if (data != nil) {
 			TCAccount *account = [privateManagedObjectContext objectWithID:accountID];
 
+			NSError *error = nil;
 			TCTwitterTimeLineDeserializer *twitterTimeLineDeserializer = [[TCTwitterTimeLineDeserializer alloc] init];
-			[twitterTimeLineDeserializer deserializeTimeLineData:data forAccount:account];
+			[twitterTimeLineDeserializer deserializeTimeLineData:data forAccount:account error:&error];
 			
 			[privateManagedObjectContext save:nil];
 			
 			if (completion != nil) {
-				completion(nil);
+				completion(error);
 			}
 		}
 		else {
