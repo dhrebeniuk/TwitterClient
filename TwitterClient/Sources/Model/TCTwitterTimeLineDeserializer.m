@@ -26,7 +26,7 @@
 		timeLineItem.retweetCount = [timeLineReresentation[@"retweet_count"] integerValue];
 		timeLineItem.retweeted = [timeLineReresentation[@"retweeted"] boolValue];
 		timeLineItem.text = timeLineReresentation[@"text"];
-		timeLineItem.name = timeLineReresentation[@"name"];
+		timeLineItem.name = [timeLineReresentation[@"user"] objectForKey:@"name"];
 		
 		NSDateFormatter *dateFormatter = [NSDateFormatter new];
 		[dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
