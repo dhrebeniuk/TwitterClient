@@ -32,6 +32,13 @@
 		_accountManager = accountManager;
 		_twitterClient = twitterClient;
 		_updatedContentSignal = [[RACSubject subject] setNameWithFormat:@"TCTimeLineViewModel updatedContentSignal"];
+		
+		NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([TCTimeLineItem class])];
+		fetchRequest.predicate = [NSPredicate predicateWithFormat:@"account=%@", accountManager.account];
+		fetchRequest.sortDescriptors = @[];
+		_fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:accountManager.account.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+		_fetchedResultsController.delegate = self;
+		[_fetchedResultsController performFetch:nil];
 	}
 
 	return self;
@@ -40,27 +47,20 @@
 - (void)loadTimeLineWithCompletionHandler:(TCTimeLineViewModelCompletion)completion {
 	TCAccount *account = self.accountManager.account;
 	NSManagedObjectContext *managedObjectContext = account.managedObjectContext;
-	
-	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([TCTimeLineItem class])];
-	fetchRequest.predicate = [NSPredicate predicateWithFormat:@"account=%@", account];
-	fetchRequest.sortDescriptors = @[];
-	self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-	self.fetchedResultsController.delegate = self;
-	[self.fetchedResultsController performFetch:nil];
-	
 	NSManagedObjectContext *privateManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
 	privateManagedObjectContext.parentContext = managedObjectContext;
 	NSManagedObjectID *accountID = account.objectID;
 	[self.twitterClient loadFeedWithCompletion:^(NSData *data, NSError *error) {
-		
 		if (data != nil) {
 			TCAccount *account = [privateManagedObjectContext objectWithID:accountID];
 
 			NSError *error = nil;
 			TCTwitterTimeLineDeserializer *twitterTimeLineDeserializer = [[TCTwitterTimeLineDeserializer alloc] init];
-			[twitterTimeLineDeserializer deserializeTimeLineData:data forAccount:account error:&error];
+			BOOL deserializedSuccessfully =[twitterTimeLineDeserializer deserializeTimeLineData:data forAccount:account error:&error];
 			
-			[privateManagedObjectContext save:nil];
+			if (deserializedSuccessfully) {
+				[privateManagedObjectContext save:nil];
+			}
 			
 			if (completion != nil) {
 				completion(error);
