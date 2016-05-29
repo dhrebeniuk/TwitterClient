@@ -11,6 +11,7 @@
 #import "TCTimeLineViewCell.h"
 #import "TCTimeLineViewModelItem.h"
 #import "SCNetworkReachability.h"
+#import <Social/Social.h>
 
 @interface TCViewController ()
 
@@ -74,6 +75,14 @@
 - (IBAction)refreshContent:(id)sender {
 	[self loadTimeLineAndShowIndicator:YES];
 }
+
+- (IBAction)composeTweet:(id)sender {
+	if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+		SLComposeViewController *composeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+		[self presentViewController:composeViewController animated:YES completion:nil];
+	}
+}
+
 
 #pragma mark - UITableViewDataSource
 
