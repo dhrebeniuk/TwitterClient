@@ -4,7 +4,8 @@ target 'TwitterClient', :exclusive => false do
 	platform :ios, '8.0'
 	pod 'ReactiveCocoa', '~> 2.5'
 	pod 'Typhoon', '~> 3.4.7'
-	pod 'libextobjc', ' ~> 0.4.1'
+	pod 'libextobjc', '~> 0.4.1'
+	pod 'SCNetworkReachability', '~> 2.0.5'
 end
 
 target 'TwitterClientTests', :exclusive => false do

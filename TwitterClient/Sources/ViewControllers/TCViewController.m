@@ -10,10 +10,11 @@
 #import "TCTwitterClient.h"
 #import "TCTimeLineViewCell.h"
 #import "TCTimeLineViewModelItem.h"
+#import "SCNetworkReachability.h"
 
 @interface TCViewController ()
 
-@property (nonatomic, strong) NSTimer *updateContentTimer;
+@property (nonatomic, strong) SCNetworkReachability *networkReachability;
 
 @end
 
@@ -34,12 +35,21 @@
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
-	[self setupTimer];
+	self.networkReachability = [[SCNetworkReachability alloc] initWithHost:@"twitter.com"];
+	@weakify(self);
+	[self.networkReachability observeReachability:^(SCNetworkStatus status) {
+		if (status != SCNetworkStatusNotReachable) {
+			dispatch_async(dispatch_get_main_queue(), ^{
+				@strongify(self);
+				[self loadTimeLineAndShowIndicator:NO];
+			});
+		}
+	}];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-	[self.updateContentTimer invalidate];
-
+	self.networkReachability = nil;
+	
 	[super viewWillDisappear:animated];
 }
 
@@ -57,14 +67,8 @@
 			if (error != nil && showIndicator) {
 				self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:error.domain];
 			}
-			[self setupTimer];
 		});
 	}];
-}
-
-- (void)setupTimer {
-	[self.updateContentTimer invalidate];
-	self.updateContentTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(loadTimeLineAndShowIndicator:) userInfo:nil repeats:YES];
 }
 
 - (IBAction)refreshContent:(id)sender {
