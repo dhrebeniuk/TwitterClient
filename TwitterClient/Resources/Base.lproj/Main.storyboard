@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -30,8 +31,8 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="ekF-v3-jrY"/>
-                                                <constraint firstAttribute="height" constant="80" id="f7d-Yf-8s5"/>
+                                                <constraint firstAttribute="width" priority="750" constant="80" id="ekF-v3-jrY"/>
+                                                <constraint firstAttribute="height" priority="750" constant="80" id="f7d-Yf-8s5"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[name]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mf6-xT-VRF">
@@ -49,14 +50,15 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Mf6-xT-VRF" firstAttribute="leading" secondItem="cek-Ac-CaL" secondAttribute="trailing" constant="8" id="07V-iM-VBt"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mf6-xT-VRF" secondAttribute="trailing" id="5IW-7l-lwX"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Mf6-xT-VRF" secondAttribute="trailing" id="5IW-7l-lwX"/>
                                         <constraint firstItem="cek-Ac-CaL" firstAttribute="leading" secondItem="BgJ-GR-dGA" secondAttribute="leading" constant="8" id="ASx-g0-y0x"/>
                                         <constraint firstItem="cek-Ac-CaL" firstAttribute="top" secondItem="BgJ-GR-dGA" secondAttribute="top" constant="8" id="BnE-xl-epm"/>
                                         <constraint firstItem="Mf6-xT-VRF" firstAttribute="top" secondItem="BgJ-GR-dGA" secondAttribute="top" constant="8" id="CH7-Z1-EYP"/>
                                         <constraint firstItem="Tea-sG-0Yg" firstAttribute="top" secondItem="Mf6-xT-VRF" secondAttribute="bottom" constant="8" id="IYQ-xJ-HnT"/>
                                         <constraint firstAttribute="bottom" secondItem="cek-Ac-CaL" secondAttribute="bottom" constant="15.5" id="Knq-NS-hOq"/>
                                         <constraint firstItem="Tea-sG-0Yg" firstAttribute="leading" secondItem="cek-Ac-CaL" secondAttribute="trailing" constant="8" id="X21-eT-22A"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Tea-sG-0Yg" secondAttribute="trailing" id="hdc-mR-jvE"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Tea-sG-0Yg" secondAttribute="bottom" id="hB4-gJ-l5x"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Tea-sG-0Yg" secondAttribute="trailing" id="hdc-mR-jvE"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
