@@ -95,6 +95,8 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
 	[self.updatedContentSignal sendNext:nil];
+	
+	[self.accountManager.account.managedObjectContext save:nil];
 }
 
 @end
