@@ -8,6 +8,7 @@
 
 #import "TCViewController.h"
 #import "TCTwitterClient.h"
+#import "TCTimeLineViewCell.h"
 
 @interface TCViewController ()
 
@@ -49,7 +50,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timeLineCell" forIndexPath:indexPath];
+	TCTimeLineViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timeLineCell" forIndexPath:indexPath];
 	cell.backgroundColor = [UIColor yellowColor];
 	
 	return cell;

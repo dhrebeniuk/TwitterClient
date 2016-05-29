@@ -11,6 +11,7 @@
 		928CACEC6CEB01BD10934EC9 /* libPods-TwitterClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46901FD4DEF8F413CAFAF9C1 /* libPods-TwitterClient.a */; };
 		D906817A1CF78C61007C2840 /* TCAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D90681791CF78C61007C2840 /* TCAccountManager.m */; };
 		D906817C1CF78C7B007C2840 /* TCAccountManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D906817B1CF78C7B007C2840 /* TCAccountManagerTest.m */; };
+		D96D413F1CFB4A18007B20AC /* TCTimeLineViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D96D413E1CFB4A18007B20AC /* TCTimeLineViewCell.m */; };
 		D980B2581CF6239700CC911E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D980B2561CF6239700CC911E /* Main.storyboard */; };
 		D980B25B1CF6239700CC911E /* TwitterClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D980B2591CF6239700CC911E /* TwitterClient.xcdatamodeld */; };
 		D980B25D1CF6239700CC911E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D980B25C1CF6239700CC911E /* Assets.xcassets */; };
@@ -57,6 +58,8 @@
 		D90681781CF78C61007C2840 /* TCAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAccountManager.h; sourceTree = "<group>"; };
 		D90681791CF78C61007C2840 /* TCAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAccountManager.m; sourceTree = "<group>"; };
 		D906817B1CF78C7B007C2840 /* TCAccountManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAccountManagerTest.m; sourceTree = "<group>"; };
+		D96D413D1CFB4A18007B20AC /* TCTimeLineViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTimeLineViewCell.h; sourceTree = "<group>"; };
+		D96D413E1CFB4A18007B20AC /* TCTimeLineViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTimeLineViewCell.m; sourceTree = "<group>"; };
 		D980B24A1CF6239700CC911E /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D980B2571CF6239700CC911E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D980B25A1CF6239700CC911E /* TwitterClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitterClient.xcdatamodel; sourceTree = "<group>"; };
@@ -145,6 +148,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D96D413C1CFB49D7007B20AC /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				D96D413D1CFB4A18007B20AC /* TCTimeLineViewCell.h */,
+				D96D413E1CFB4A18007B20AC /* TCTimeLineViewCell.m */,
+			);
+			path = ViewCells;
+			sourceTree = "<group>";
+		};
 		D980B2411CF6239700CC911E = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +200,7 @@
 		D980B2751CF6241800CC911E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D96D413C1CFB49D7007B20AC /* ViewCells */,
 				EB2110351CF71F2700D191C0 /* ViewModels */,
 				EB2110071CF6F1B900D191C0 /* ViewControllers */,
 				D980B2861CF6422A00CC911E /* Model */,
@@ -528,6 +541,7 @@
 				EB21103D1CF7323500D191C0 /* TCInitialViewController.m in Sources */,
 				D980B2801CF6247D00CC911E /* main.m in Sources */,
 				EB21101B1CF6F62F00D191C0 /* TCTimeLineItem+CoreDataProperties.m in Sources */,
+				D96D413F1CFB4A18007B20AC /* TCTimeLineViewCell.m in Sources */,
 				D980B27D1CF6245800CC911E /* TCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

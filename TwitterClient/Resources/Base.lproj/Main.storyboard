@@ -9,27 +9,61 @@
         <scene sceneID="bMY-Nv-fgO">
             <objects>
                 <tableViewController id="PIc-34-oKA" customClass="TCViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="NbE-Ya-5gw">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="NbE-Ya-5gw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeLineCell" textLabel="6CK-9h-qbE" style="IBUITableViewCellStyleDefault" id="DoR-du-I1R">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeLineCell" rowHeight="104" id="DoR-du-I1R" customClass="TCTimeLineViewCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DoR-du-I1R" id="BgJ-GR-dGA">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="103.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6CK-9h-qbE">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cek-Ac-CaL">
+                                            <rect key="frame" x="8" y="8" width="80" height="80"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nRJ-MZ-y68">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="ekF-v3-jrY"/>
+                                                <constraint firstAttribute="height" constant="80" id="f7d-Yf-8s5"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[name]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mf6-xT-VRF">
+                                            <rect key="frame" x="96" y="8" width="55" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Text]" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tea-sG-0Yg">
+                                            <rect key="frame" x="96" y="37" width="44.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Mf6-xT-VRF" firstAttribute="leading" secondItem="cek-Ac-CaL" secondAttribute="trailing" constant="8" id="07V-iM-VBt"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mf6-xT-VRF" secondAttribute="trailing" id="5IW-7l-lwX"/>
+                                        <constraint firstItem="cek-Ac-CaL" firstAttribute="leading" secondItem="BgJ-GR-dGA" secondAttribute="leading" constant="8" id="ASx-g0-y0x"/>
+                                        <constraint firstItem="cek-Ac-CaL" firstAttribute="top" secondItem="BgJ-GR-dGA" secondAttribute="top" constant="8" id="BnE-xl-epm"/>
+                                        <constraint firstItem="Mf6-xT-VRF" firstAttribute="top" secondItem="BgJ-GR-dGA" secondAttribute="top" constant="8" id="CH7-Z1-EYP"/>
+                                        <constraint firstItem="Tea-sG-0Yg" firstAttribute="top" secondItem="Mf6-xT-VRF" secondAttribute="bottom" constant="8" id="IYQ-xJ-HnT"/>
+                                        <constraint firstAttribute="bottom" secondItem="cek-Ac-CaL" secondAttribute="bottom" constant="15.5" id="Knq-NS-hOq"/>
+                                        <constraint firstItem="Tea-sG-0Yg" firstAttribute="leading" secondItem="cek-Ac-CaL" secondAttribute="trailing" constant="8" id="X21-eT-22A"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Tea-sG-0Yg" secondAttribute="trailing" id="hdc-mR-jvE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="detailsLabel" destination="Tea-sG-0Yg" id="vfS-jJ-cKB"/>
+                                    <outlet property="timeLineImageView" destination="nRJ-MZ-y68" id="gLf-M1-z17"/>
+                                    <outlet property="titleLabel" destination="Mf6-xT-VRF" id="2b8-HR-VNc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
