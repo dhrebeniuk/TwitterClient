@@ -13,6 +13,8 @@
 
 @interface TCViewController ()
 
+@property (nonatomic, strong) NSTimer *updateContentTimer;
+
 @end
 
 @implementation TCViewController
@@ -26,27 +28,47 @@
 		[self.tableView reloadData];
 	}];
 	
-	[self loadTimeLine];
+	[self loadTimeLineAndShowIndicator:YES];
 }
 
-- (void)loadTimeLine {
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	[self setupTimer];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	[self.updateContentTimer invalidate];
+
+	[super viewWillDisappear:animated];
+}
+
+- (void)loadTimeLineAndShowIndicator:(BOOL)showIndicator {
 	self.refreshControl.attributedTitle = nil;
 	self.title = self.timeLineViewModel.title;
-	[self.refreshControl beginRefreshing];
+	if (showIndicator) {
+		[self.refreshControl beginRefreshing];
+	}
 	@weakify(self);
 	[self.timeLineViewModel loadTimeLineWithCompletionHandler:^(NSError *error) {
 		@strongify(self);
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[self.refreshControl endRefreshing];
-			if (error != nil) {
+			if (error != nil && showIndicator) {
 				self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:error.domain];
 			}
+			[self setupTimer];
 		});
 	}];
 }
 
+- (void)setupTimer {
+	[self.updateContentTimer invalidate];
+	self.updateContentTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(loadTimeLineAndShowIndicator:) userInfo:nil repeats:YES];
+}
+
 - (IBAction)refreshContent:(id)sender {
-	[self loadTimeLine];
+	[self loadTimeLineAndShowIndicator:YES];
 }
 
 #pragma mark - UITableViewDataSource
