@@ -346,12 +346,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D980B26F1CF6239700CC911E /* Build configuration list for PBXNativeTarget "TwitterClient" */;
 			buildPhases = (
-				76C5648C9CC69D46E3C33DAA /* Check Pods Manifest.lock */,
+				76C5648C9CC69D46E3C33DAA /* [CP] Check Pods Manifest.lock */,
 				D980B2461CF6239700CC911E /* Sources */,
 				D980B2471CF6239700CC911E /* Frameworks */,
 				D980B2481CF6239700CC911E /* Resources */,
-				24126E2FDBAEA073244D3DB9 /* Embed Pods Frameworks */,
-				3DB505EEB04A466B7EB11851 /* Copy Pods Resources */,
+				24126E2FDBAEA073244D3DB9 /* [CP] Embed Pods Frameworks */,
+				3DB505EEB04A466B7EB11851 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -366,12 +366,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D980B2721CF6239700CC911E /* Build configuration list for PBXNativeTarget "TwitterClientTests" */;
 			buildPhases = (
-				400AC5C6ED6C914D34701C4A /* Check Pods Manifest.lock */,
+				400AC5C6ED6C914D34701C4A /* [CP] Check Pods Manifest.lock */,
 				D980B2621CF6239700CC911E /* Sources */,
 				D980B2631CF6239700CC911E /* Frameworks */,
 				D980B2641CF6239700CC911E /* Resources */,
-				BB5AA548DF9B20732D1B1A06 /* Embed Pods Frameworks */,
-				F903DED9B5B361DF117C38B2 /* Copy Pods Resources */,
+				BB5AA548DF9B20732D1B1A06 /* [CP] Embed Pods Frameworks */,
+				F903DED9B5B361DF117C38B2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -443,14 +443,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		24126E2FDBAEA073244D3DB9 /* Embed Pods Frameworks */ = {
+		24126E2FDBAEA073244D3DB9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,14 +458,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3DB505EEB04A466B7EB11851 /* Copy Pods Resources */ = {
+		3DB505EEB04A466B7EB11851 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,14 +473,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		400AC5C6ED6C914D34701C4A /* Check Pods Manifest.lock */ = {
+		400AC5C6ED6C914D34701C4A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,14 +488,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		76C5648C9CC69D46E3C33DAA /* Check Pods Manifest.lock */ = {
+		76C5648C9CC69D46E3C33DAA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,14 +503,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BB5AA548DF9B20732D1B1A06 /* Embed Pods Frameworks */ = {
+		BB5AA548DF9B20732D1B1A06 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,14 +518,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitterClientTests/Pods-TwitterClientTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F903DED9B5B361DF117C38B2 /* Copy Pods Resources */ = {
+		F903DED9B5B361DF117C38B2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
