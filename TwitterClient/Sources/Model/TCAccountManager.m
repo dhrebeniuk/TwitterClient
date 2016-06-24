@@ -7,7 +7,7 @@
 //
 
 #import "TCAccountManager.h"
-#import <libextobjc/EXTKeyPathCoding.h>
+#import <ReactiveCocoa/RACEXTKeyPathCoding.h>
 
 @interface TCAccountManager ()
 
