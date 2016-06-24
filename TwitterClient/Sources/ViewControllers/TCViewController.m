@@ -94,8 +94,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	TCTimeLineViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timeLineCell" forIndexPath:indexPath];
 	TCTimeLineViewModelItem *timeLineViewModelItem =[self.timeLineViewModel timelineItemAtIndex:indexPath.row];
-	cell.titleLabel.text = timeLineViewModelItem.userName;
-	cell.detailsLabel.text = timeLineViewModelItem.text;
+	
+	RAC(cell.titleLabel, text) = RACObserve(timeLineViewModelItem, userName);
+	RAC(cell.detailsLabel, text) = RACObserve(timeLineViewModelItem, text);
+
 	[cell.timeLineImageView hnk_setImageFromURL:timeLineViewModelItem.imageURL];
 	
 	return cell;
